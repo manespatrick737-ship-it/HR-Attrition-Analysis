@@ -249,6 +249,7 @@ ON a1.Department = a2.Department;
 
 ```
 
+# What I Learned
 Here is a quick breakdown of the Employee Attrition Analysis:
 
 **Promotion Gap** - the length on how long it takes for an employee to be promoted affects their retention as seen from the Promotion Gap Analysis we have done. Research Director, Healthcare Representative, Sales Executive, and Research Scientist are the Job Roles to look out for. 
@@ -266,6 +267,5 @@ low relationship satisfaction with their Manager. Although the number is low, we
 
 **Training Gap** - We have seen from our analysis that there is small correlation on how much training an employee receives last year to Attrition. The less training they receive, they are more likely to leave the company. 
 
-# What I Learned
 
 # Conclusions
