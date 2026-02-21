@@ -36,6 +36,10 @@ Company XYZ is only a fictional company and the dataset used for this project ca
 - Find the average Percent Salary Hike for employees who received a Performance Rating of 3 vs 4. Then, calculate how many of those "High Performers" (Rating 4) left the company despite receiving a salary hike of less than 15%
   
 # Tool I Used
+For my deep dive into the employee attrition dataset, I have used the following key tools:
+
+- **MySQL**: The main backbone and bulk of my analysis. This tool allows me to query the dataset to derive key insights.
+- **Github**: This is to showcase my project analysis and share my SQL scripts that I have used. 
 
 # The Analysis
 
