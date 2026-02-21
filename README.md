@@ -265,13 +265,23 @@ Here is a quick breakdown of the Employee Attrition Analysis:
 **Managerial Impact** - On our Managerial Impact Analysis, we only had a total of 16 employees who had left the company due to a 
 low relationship satisfaction with their Manager. Although the number is low, we still need to keep an eye on this as this may be a trend in the future. 
 
-**Training Gap** - We have seen from our analysis that there is small correlation on how much training an employee receives last year to Attrition. The less training they receive, they are more likely to leave the company. 
+**Training Gap** - We have seen from our analysis that there is small correlation on how much training an employee receives last year to attrition. The less training they receive, they are more likely to leave the company. 
 
 
-# Reccomendations 
+# Recommendations 
 
-**Employee Sucession Plan** To resolve the Promotion Gap issue, each manager should introduce a career progression/succession plan to each of their employees they have. This give transparency, timeline, and a clear direction to those employees what's next or what steps they need to achieve, giving them the motivation to step up in the career ladder. 
+**Employee Sucession Plan** - To resolve the Promotion Gap issue, each manager should introduce a career progression/succession plan to each of their employees they have. This give transparency, timeline, and a clear direction to those employees what's next or what steps they need to achieve, giving them the motivation to step up in the career ladder. 
 
-**Workplace Audit** To further deep dive the Overtime and Burnout issue, we must do an audit on how our current workplace operates. We must recognize the bottlenecks first that causes employees to do overtime on their work (i.e. manual tasks, endless meetings, workload distribution etc.). From there, we can do a separate analysis what these bottlenecks are and how we can resolve this. 
+**Workplace Audit**  - To further deep dive the Overtime and Burnout issue, we must do an audit on how our current workplace operates. We must recognize the bottlenecks first that causes employees to do overtime on their work (i.e. manual tasks, endless meetings, workload distribution etc.). From there, we can do a separate analysis what these bottlenecks are and how we can resolve this. 
 
-**Remote Work Implementation** As seen from our analysis, most employees who have long commute distance tends to leave the company. We can implement a remote work setup depending on the distance of where the employee lives and the office location. 
+**Remote Work Implementation** -  As seen from our analysis, most employees who have long commute distance tends to leave the company. We can implement a remote work setup depending on the distance of where the employee lives and the office location. 
+
+**Company Competitiveness Benchmarking** - We might need to do Company Competitiveness benchmarking based from industry and competitor standard to make sure what we offer is on par and possibly better on industry standards. 
+
+**Invest on quality Training** - Make sure that the training we provide our amongst the best in industry standards as this not only helps the employee and company's growth but the attrition rate as well. 
+
+**Manager Training** - Invest on mangerial training especially on interpersonal and soft skills a manager must have. This combats a future trend of employee attrition due to poor manager relationship satisfaction. 
+
+# Closing Thoughts
+
+The project really challenged my competency in my SQL skills. The dataset provided contains a lot of valuable key information regarding key indicators and insights why an employee may left the company and a common theme on why employees leave the company based from my analysis stem from employee satisfaction. As a company, we must first prioritize an employee's wellbeing and satisfaction since they are one of the pillars that makes the company successful. 
