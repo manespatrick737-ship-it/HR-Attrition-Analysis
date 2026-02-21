@@ -167,7 +167,89 @@ FROM salary_ranks
 ORDER BY salary_ranking ASC, MonthlyIncome DESC; 
 
 ```
+### 6. Distance from Home Analysis
+- I categorized the raw commute data into three distinct buckets—Short, Medium, and Long—using a CASE statement to make the distance metrics more actionable. Within these groups, I used conditional aggregation to count total employees and specific attrition count simultaneously. I then calculated the attrition rate for each bucket to determine if longer commutes significantly increased the likelihood of an employee leaving. By joining these metrics in a CTE, I was able to transform thousands of individual distances into a clear trend report.
 
+```SQL
+WITH commute_distance AS
+(
+SELECT
+CASE
+	WHEN DistanceFromHome BETWEEN 1 and 5 THEN 'Short (0-5)'
+    WHEN DistanceFromHome BETWEEN 6 and 15 THEN 'Medium (6-15)'
+	ELSE 'Long (15+)' END as commute_distance,
+COUNT(*) as total_count,
+SUM(CASE WHEN Attrition = 'Yes' THEN 1 ELSE 0 END) as attrition_count
+FROM hr_attrition_staging
+GROUP BY commute_distance
+ORDER BY attrition_count DESC
+)
+SELECT
+commute_distance,
+total_count,
+attrition_count,
+ROUND((attrition_count * 100.0 )/ total_count,2) as attrition_rate
+FROM commute_distance
+ORDER BY attrition_rate DESC;
+
+```
+
+### 7. Managerial Impact
+- I isolated a high-risk group of long-tenured employees who have worked under the same manager for over five years. I further refined this list by filtering for those reporting the lowest possible relationship satisfaction score to identify "unhappy veterans." Using a CTE, I extracted their specific roles and attrition status to see if these broken relationships were leading to actual departures. I then aggregated the final count by attrition status to quantify exactly how many of these individuals had already left versus those still at risk.
+
+```SQL
+WITH relationship_status AS
+(
+SELECT 
+EmployeeNumber,
+JobRole,
+Attrition
+FROM hr_attrition_staging
+WHERE YearsWithCurrManager > 5
+AND RelationshipSatisfaction = 1
+)
+SELECT
+Attrition,
+COUNT(*) as num_of_emp
+FROM relationship_status
+GROUP BY Attrition;
+
+```
+
+### 8. Training and Retention
+- I investigated the impact of professional development by creating two separate CTEs to calculate the average training frequency for employees who left versus those who stayed. By grouping these averages by department, I was able to observe how learning opportunities vary across different business units. I then joined these datasets to compare the two groups side-by-side, revealing whether a lack of training correlated with higher turnover. To make the data actionable, I calculated a "Training Gap" column to quantify the specific investment difference between retained and lost talent.
+
+```SQL
+WITH att_avg_training AS
+(
+SELECT
+Department,
+ROUND(AVG(TrainingTimesLastYear),2) as att_avg_training
+FROM hr_attrition_staging
+WHERE Attrition = 'Yes'
+GROUP BY Department
+), noatt_avg_training AS
+(
+SELECT
+Department,
+ROUND(AVG(TrainingTimesLastYear),2) as not_att_avg_training
+FROM hr_attrition_staging
+WHERE Attrition = 'No'
+GROUP BY Department
+)
+SELECT
+a1.Department,
+a1.att_avg_training, 
+a2.not_att_avg_training,
+(a2.not_att_avg_training - a1.att_avg_training) AS training_gap
+FROM att_avg_training a1
+JOIN noatt_avg_training a2
+ON a1.Department = a2.Department;
+
+```
+
+
+  
 # What I Learned
 
 # Conclusions
