@@ -1,7 +1,7 @@
 SELECT * FROM hr_attrition;
 
 -- Removing duplicates (No Duplicate Records)
--- Standardized the Data (Standardized the 'Age' Column Name
+-- Standardized the Data (Standardized the 'Age' Column Name)
 -- Null Values (No Null Values)
 -- Drop Columns (No Columns need to drop)
 
@@ -135,29 +135,6 @@ FROM salary_ranks
 ORDER BY salary_ranking ASC, MonthlyIncome DESC; 
 
 
--- The "Loyalty" Threshold
-WITH role_avg_years AS
-(
-SELECT 
-JobRole,
-ROUND(AVG(YearsAtCompany),2) as avg_years
-FROM hr_attrition_staging
-GROUP BY JobRole
-)
-SELECT
-h.EmployeeNumber,
-h.JobLevel,
-h.JobRole,
-h.YearsAtCompany,
-r.avg_years
-FROM hr_attrition_staging h 
-LEFT JOIN role_avg_years r
-ON h.JobRole = r.JobRole
-WHERE h.YearsAtCompany > r.avg_years
-AND JobLevel <= 2
-ORDER BY 3 ASC, 2 ASC, 4 DESC;
-
-
 -- Distance from Home Analysis
 WITH commute_distance AS
 (
@@ -227,15 +204,6 @@ JOIN noatt_avg_training a2
 ON a1.Department = a2.Department; 
 
 
--- Salary Hike vs Performance
-SELECT
-Attrition,
-SUM(CASE WHEN Attrition = 'Yes' THEN 1 ELSE 1 END) as attrition_count,
-ROUND(AVG(PercentSalaryHike),2) as avg_percent_sal_hike,
-SUM(CASE WHEN PercentSalaryHike < 15 THEN 1 ELSE 0 END) as insult_hike_count
-FROM hr_attrition_staging
-WHERE PerformanceRating = 4
-GROUP BY 1;
 
  
 
