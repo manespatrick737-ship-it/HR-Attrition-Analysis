@@ -35,13 +35,46 @@ Company XYZ is only a fictional company and the dataset used for this project ca
 #### 9. Salary Hike vs Performance
 - Find the average Percent Salary Hike for employees who received a Performance Rating of 3 vs 4. Then, calculate how many of those "High Performers" (Rating 4) left the company despite receiving a salary hike of less than 15%
   
-# Tool I Used
+# Tools I Used
 For my deep dive into the employee attrition dataset, I have used the following key tools:
 
 - **MySQL**: The main backbone and bulk of my analysis. This tool allows me to query the dataset to derive key insights.
 - **Github**: This is to showcase my project analysis and share my SQL scripts that I have used. 
 
 # The Analysis
+Each query for this project aims to investigate specific aspects on Employee Attrition Dataset. Here's how I aproached each question:
+
+### 1. The Attrition Heatmap
+- To identify the Attrition Heatmap, I began by creating a baseline CTE to calculate the total headcount per department, establishing the necessary denominator for my analysis. Next, I built a second CTE to isolate only those who left the company, giving me a precise numerator of attrition counts per department. I then bridged these two distinct datasets using a "JOIN", which allowed me to align total staff levels with actual losses side-by-side.I applied a descending sort to the results, effectively generating a "Heatmap" that ranks departments by their level of turnover risk.
+
+```
+WITH total_num_employees AS
+(
+SELECT
+Department, 
+COUNT(*) AS total_employees
+FROM hr_attrition_staging
+GROUP BY 1
+), 
+num_of_attrition AS 
+(
+SELECT
+Department,
+COUNT(*) as total_attrition
+FROM hr_attrition_staging
+WHERE Attrition = 'Yes'
+GROUP BY 1
+)
+SELECT
+total_num_employees.Department, 
+total_num_employees.total_employees,
+num_of_attrition.total_attrition,
+ROUND(((num_of_attrition.total_attrition / total_num_employees.total_employees) * 100.0),2) as attrition_rate
+FROM total_num_employees
+JOIN num_of_attrition
+ON total_num_employees.Department = num_of_attrition.Department
+ORDER BY 4 DESC;
+```
 
 # What I Learned
 
