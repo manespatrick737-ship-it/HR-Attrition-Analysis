@@ -268,4 +268,10 @@ low relationship satisfaction with their Manager. Although the number is low, we
 **Training Gap** - We have seen from our analysis that there is small correlation on how much training an employee receives last year to Attrition. The less training they receive, they are more likely to leave the company. 
 
 
-# Conclusions
+# Reccomendations 
+
+**Employee Sucession Plan** To resolve the Promotion Gap issue, each manager should introduce a career progression/succession plan to each of their employees they have. This give transparency, timeline, and a clear direction to those employees what's next or what steps they need to achieve, giving them the motivation to step up in the career ladder. 
+
+**Workplace Audit** To further deep dive the Overtime and Burnout issue, we must do an audit on how our current workplace operates. We must recognize the bottlenecks first that causes employees to do overtime on their work (i.e. manual tasks, endless meetings, workload distribution etc.). From there, we can do a separate analysis what these bottlenecks are and how we can resolve this. 
+
+**Remote Work Implementation** As seen from our analysis, most employees who have long commute distance tends to leave the company. We can implement a remote work setup depending on the distance of where the employee lives and the office location. 
