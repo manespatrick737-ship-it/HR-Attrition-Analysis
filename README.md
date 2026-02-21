@@ -145,8 +145,8 @@ GROUP BY OverTime;
 ### 5. Income vs Satisfaction Ranking
 - I isolated a "high-risk" group by filtering for top-performing employees who reported low job satisfaction scores. I then applied a DENSE_RANK window function to rank their salaries relative only to others in their specific department. This allowed me to see where these unhappy high-performers stood on the pay scale compared to their direct peers. By ordering the final list by rank, I identified individuals who were both top of their field and top of the payroll, yet still dissatisfied.
 
-  ```SQL
-  WITH salary_ranks AS
+```SQL
+WITH salary_ranks AS
 (
 SELECT
 EmployeeNumber,
@@ -165,6 +165,7 @@ MonthlyIncome,
 salary_ranking
 FROM salary_ranks
 ORDER BY salary_ranking ASC, MonthlyIncome DESC; 
+
 ```
 
 # What I Learned
