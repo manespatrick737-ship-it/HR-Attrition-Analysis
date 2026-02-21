@@ -118,6 +118,7 @@ ORDER BY 4 DESC;
 ```SQL
 SELECT
 EmployeeNumber,
+JobLevel,
 JobRole,
 Department,
 TotalWorkingYears,
@@ -252,8 +253,17 @@ Here is a quick breakdown of the Employee Attrition Analysis:
 
 **Promotion Gap** - the length on how long it takes for an employee to be promoted affects their retention as seen from the Promotion Gap Analysis we have done. Research Director, Healthcare Representative, Sales Executive, and Research Scientist are the Job Roles to look out for. 
 
+**Mid to Senior Level Attrition** - As seen on the High Earner Churn Analysis. The Top 10 Highest earners who left the company came from Mid to Senior Level (Job Level's 3 to 5). 
 
-  
+**Overtime and Burnout** - Overtime and Burnout is a strong indicator of Attrition amongst employees showing a 30% attrition rate to those who have reported they do overtime compared to a 10% attrition rate to those who have not. 
+
+**Commute Distance contributes to Attrition Increase** - From our Distance from Home Analysis, we have seen that the longer the commute distance, attrition rate increases as well. 
+
+**Managerial Impact** - On our Managerial Impact Analysis, we only had a total of 16 employees who had left the company due to a 
+low relationship satisfaction with their Manager. Although the number is low, we still need to keep an eye on this as this may be a trend in the future. 
+
+**Training Gap** - We have seen from our analysis that there is small correlation on how much training an employee receives last year to Attrition. The less training they receive, they are more likely to leave the company. 
+
 # What I Learned
 
 # Conclusions
