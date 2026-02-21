@@ -93,6 +93,7 @@ ORDER BY 4 DESC;
 -- High Earner Churn
 SELECT
 EmployeeNumber,
+JobLevel, 
 JobRole,
 Department,
 TotalWorkingYears,
