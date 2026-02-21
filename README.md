@@ -47,7 +47,7 @@ Each query for this project aims to investigate specific aspects on Employee Att
 ### 1. The Attrition Heatmap
 - To identify the Attrition Heatmap, I began by creating a baseline CTE to calculate the total headcount per department, establishing the necessary denominator for my analysis. Next, I built a second CTE to isolate only those who left the company, giving me a precise numerator of attrition counts per department. I then bridged these two distinct datasets using a "JOIN", which allowed me to align total staff levels with actual losses side-by-side.I applied a descending sort to the results, effectively generating a "Heatmap" that ranks departments by their level of turnover risk.
 
-```
+```SQL
 WITH total_num_employees AS
 (
 SELECT
@@ -74,7 +74,44 @@ FROM total_num_employees
 JOIN num_of_attrition
 ON total_num_employees.Department = num_of_attrition.Department
 ORDER BY 4 DESC;
+
 ```
+
+### 2. The "Promotion Gap"
+- I first constructed two separate CTEs to isolate the average years since the last promotion for both employees who left and those who stayed. By calculating these averages independently by job role, I established a clear baseline for career progression speeds across the company. I then joined these two tables on the JobRole column to compare the "stagnation" of former employees directly against their current peers. Using a subtraction formula, I calculated the "Promotion Lag," revealing exactly how many extra years turnover-prone employees were waiting for advancement. Finally, I sorted the results by the largest lag to highlight which roles were suffering from a "promotion bottleneck" that likely triggered resignations.
+
+```SQL
+WITH att_last_promotion AS
+(
+SELECT
+JobRole,
+ROUND(AVG(YearsSinceLastPromotion),2) as attrition_avg_last_promotion
+FROM hr_attrition_staging
+WHERE Attrition = 'Yes'
+GROUP BY 1
+ORDER BY 2 DESC
+), stayed_last_promotion AS
+(
+SELECT
+JobRole,
+ROUND(AVG(YearsSinceLastPromotion),2) as stayed_avg_last_promotion
+FROM hr_attrition_staging
+WHERE Attrition = 'No'
+GROUP BY 1
+ORDER BY 2 DESC
+)
+SELECT
+a.JobRole,
+a.attrition_avg_last_promotion,
+s.stayed_avg_last_promotion,
+ROUND(a.attrition_avg_last_promotion - s.stayed_avg_last_promotion, 2) AS promotion_lag
+FROM att_last_promotion a
+JOIN stayed_last_promotion s 
+ON a.JobRole = s.JobRole
+ORDER BY 4 DESC;
+
+```
+
 
 # What I Learned
 
