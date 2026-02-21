@@ -281,4 +281,4 @@ low relationship satisfaction with their Manager. Although the number is low, we
 
 # Closing Thoughts
 
-The project really challenged my competency in my SQL skills. The dataset provided contains a lot of valuable key information regarding key indicators and insights why an employee may left the company and a common theme on why employees leave the company based from my analysis stem from employee satisfaction. As a company, we must first prioritize an employee's wellbeing and satisfaction since they are one of the pillars that makes the company successful. 
+The project really challenged my competency in my SQL skills. The dataset provided contains a lot of valuable key information regarding key indicators and insights why an employee may left the company and a common theme on why employees leave the company based from my analysis stem from employee satisfaction. As a company, we must prioritize as well an employee's wellbeing and satisfaction since they are one of the pillars that makes the company successful. 
