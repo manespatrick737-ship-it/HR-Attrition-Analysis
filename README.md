@@ -112,6 +112,37 @@ ORDER BY 4 DESC;
 
 ```
 
+### 3. High Earner Churn
+- I focused my investigation on "High-Value Attrition" by filtering the dataset to isolate only those individuals who had already exited the company. To identify our most significant financial and talent losses, I selected key metrics including their role, department, and total industry experience. I specifically targeted the MonthlyIncome column and applied a descending sort to rank these departures from the highest earners to the lowest. By applying a LIMIT 10 clause, I narrowed the scope to a "Top 10" list of the company’s most expensive talent drains.
+
+```SQL
+SELECT
+EmployeeNumber,
+JobRole,
+Department,
+TotalWorkingYears,
+MonthlyIncome
+FROM hr_attrition_staging 
+WHERE Attrition = 'Yes'
+ORDER BY 5 DESC
+LIMIT 10;
+
+```
+
+### 4. Overtime and Burnout
+- I analyzed the correlation between extra hours and turnover by grouping the entire workforce based on their OverTime status. Using conditional aggregation, I calculated the exact number of resignations within the overtime and non-overtime groups. I then divided these losses by the total headcount of each group to establish a comparable attrition rate
+
+```SQL
+SELECT
+OverTime,
+COUNT(*) as total_employees,
+SUM(CASE WHEN Attrition = 'Yes' THEN 1 ELSE 0 END) AS total_attrition,
+ROUND((SUM(CASE WHEN Attrition = 'Yes' THEN 1 ELSE 0 END)* 100 / COUNT(*)),2)  as attrition_rate
+FROM hr_attrition_staging
+GROUP BY OverTime;
+
+```
+
 
 # What I Learned
 
