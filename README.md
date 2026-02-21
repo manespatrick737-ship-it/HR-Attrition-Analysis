@@ -4,7 +4,7 @@ Company XYZ are interested to find out any underlying causes of employees leavin
 # Background
 As companies of today's age are trying their best to retain their best employees, Company XYZ has decided to further dig deep the Attrition Data they have and analyze what are the underlying causes on why employees leave their company. From this analysis, we'll come up with conclusions and recommendations on how we can retain Company XYZ's employees effectively. 
 
-Company XYZ is only a fictional company and the dataset used for this project came from this [Kaggle Dataset](https://www.kaggle.com/datasets/itssuru/hr-employee-attrition). The data contains a lot of insights that contains employee information that we can use and derive for our Attrition Analysis. 
+Company XYZ is only a fictional company and the dataset used for this project came from this [Kaggle Dataset](https://www.kaggle.com/datasets/itssuru/hr-employee-attrition). The data contains a lot of insights that about the employee information that we can use and derive for our Attrition Analysis. 
 
 ### The questions I wanted to answer through my SQL queries are the following:
 
