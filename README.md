@@ -31,9 +31,6 @@ Company XYZ is only a fictional company and the dataset used for this project ca
 
 #### 8. Training & Retention
 - Compare the average number of trainings times last year for those employees who have stayed compared to those who left. Does investment in training influence the decision to stay?
-
-#### 9. Salary Hike vs Performance
-- Find the average Percent Salary Hike for employees who received a Performance Rating of 3 vs 4. Then, calculate how many of those "High Performers" (Rating 4) left the company despite receiving a salary hike of less than 15%
   
 # Tools I Used
 For my deep dive into the employee attrition dataset, I have used the following key tools:
