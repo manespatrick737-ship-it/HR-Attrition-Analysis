@@ -255,7 +255,7 @@ Here is a quick breakdown of the Employee Attrition Analysis:
 
 **Overtime and Burnout** - Overtime and Burnout is a strong indicator of attrition amongst employees showing a 30% attrition rate to those who have reported they do overtime compared to a 10% attrition rate to those who have not. 
 
-**Income vs Satisfaction** - We have ranked employees from their based on their monthly income with the highest performance rating (4) but the lowest Job Satisfaction (1 and 2). Most employees came from the Research and Development Department with a count of 63 employees followed by Sales with 23 employees and lastly Human Resources with 3 employees. 
+**Income vs Satisfaction** - We have ranked employees based on their monthly income with the highest performance rating (4) but the lowest Job Satisfaction (1 and 2). Most employees came from the Research and Development Department with a count of 63 employees followed by Sales with 23 employees and lastly Human Resources with 3 employees. 
 
 **Commute Distance contributes to Attrition Increase** - From our Distance from Home Analysis, we have seen that the longer the commute distance, attrition rate increases as well. 
 
